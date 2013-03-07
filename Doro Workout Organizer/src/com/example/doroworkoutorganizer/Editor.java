@@ -19,7 +19,7 @@ public class Editor extends Activity implements OnClickListener
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_workout);
-		
+		// new gg
 		View addExersizeButton = findViewById(R.id.addExercize); 
 		addExersizeButton.setOnClickListener(this);
 		View saveWorkoutButton = findViewById(R.id.saveWorkout); 
