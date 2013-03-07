@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Workout Organizer</string>
+    <string name="action_settings">Settings</string>
+    <string name="settings_add_workout">New Workout...</string>
+    <string name="add_exercize_title">New exercize</string>
+    <string name="reps_count">Count of reps</string>
+    <string name="rest_duration">Rest after, in seconds</string>
+    <string name="rep_duration">Duration of one rep, in seconds</string>
+    <string name="add_button_label">Add</string>
+    <string name="add_workout_label">Workout editor</string>
+    <string name="add_title">Editor</string>
+    <string name="empty">Still don\'t start?</string>
+    <string name="add_exercize_button">add exercize</string>
+    <string name="save_workout_button">Save Workout</string>
+    <string name="hint_edit">Tap exercize to change it</string>
+    <string name="exercize_title">New exercize</string>
+</resources>
