@@ -34,7 +34,7 @@ public class ExerciseAdapter extends ArrayAdapter<ExerciseEntity> {
             row = inflater.inflate(layoutResourceId, parent, false);
             
             holder = new ExerciseHolder();
-           // holder.imgIcon = (ImageView)row.findViewById(R.id.imgIcon);
+            holder.imgIcon = (ImageView)row.findViewById(R.id.imgIcon);
             holder.id = (TextView)row.findViewById(R.id.exercise_id);
             holder.name_id = (TextView)row.findViewById(R.id.name_id);
             holder.count = (TextView)row.findViewById(R.id.count);
@@ -50,17 +50,17 @@ public class ExerciseAdapter extends ArrayAdapter<ExerciseEntity> {
         ExerciseEntity exercise = data.get(position);
         //crash!!!
         holder.id.setText(String.valueOf(exercise.getId()));
-        //holder.imgIcon.setImageResource(weather.icon);
+        holder.imgIcon.setImageResource(R.drawable.exercise);
         holder.name_id.setText(String.valueOf( exercise.getName_id()));
-        holder.count.setText(String.valueOf(exercise.getCount()));
-        holder.rep_duration.setText(String.valueOf(exercise.getRep_duration()));
-        holder.rest_duration.setText(String.valueOf(exercise.getRest_duration()));
+        holder.count.setText("Count: "+String.valueOf(exercise.getCount())+ " times");
+        holder.rep_duration.setText("One rep: "+String.valueOf(exercise.getRep_duration())+" sec");
+        holder.rest_duration.setText("Rest duration: "+String.valueOf(exercise.getRest_duration())+" sec");
         return row;
     }
     
     static class ExerciseHolder
     {
-        //ImageView imgIcon;
+        ImageView imgIcon;
         TextView id;
         TextView name_id;
         TextView count;

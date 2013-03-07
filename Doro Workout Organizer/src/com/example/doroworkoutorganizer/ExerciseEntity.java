@@ -1,5 +1,7 @@
 package com.example.doroworkoutorganizer;
 
+import android.database.Cursor;
+
 public class ExerciseEntity {
 	
 	private int id;
@@ -34,6 +36,15 @@ public class ExerciseEntity {
 		this.count = Integer.parseInt(count);
 		this.rep_duration = Integer.parseInt(rep_dur);
 		this.rest_duration = Integer.parseInt(rest_dur);
+	}
+	
+	public ExerciseEntity(Cursor cursor)
+	{
+		this(cursor.getString(0), 
+					cursor.getString(1), 
+					cursor.getString(2), 
+					cursor.getString(3), 
+					cursor.getString(4));
 	}
 
 }
