@@ -50,7 +50,7 @@ public class ExerciseAdapter extends ArrayAdapter<ExerciseEntity> {
         ExerciseEntity exercise = data.get(position);
         //crash!!!
         holder.id.setText(String.valueOf(exercise.getId()));
-        holder.imgIcon.setImageResource(R.drawable.exercise);
+        holder.imgIcon.setImageResource(R.drawable.count_icon);
         holder.name_id.setText("Task: "+ExerciseRepository.getNameById(getContext(), exercise.getName_id()));
         holder.count.setText("Count: "+String.valueOf(exercise.getCount())+ " times");
         holder.rep_duration.setText("One rep: "+String.valueOf(exercise.getRep_duration())+" sec");

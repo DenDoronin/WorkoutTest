@@ -11,10 +11,17 @@
 		android:layout_width="fill_parent" 
 		android:layout_gravity="center"
 		android:layout_marginLeft="25dip" > 
+		<TextView
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:text="@string/exercise_type"
+		    android:layout_marginTop="25dip" 
+			android:textSize="18.5sp"  />
 		<Spinner
 			android:id="@+id/exercize_drop_list" 
 			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content"  />
+			android:layout_height="wrap_content" 
+			android:layout_marginTop="25dip"  />
 		<TextView
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"

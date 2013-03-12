@@ -21,4 +21,7 @@
     <string name="new_workout_add">Start edit</string>
     <string name="newWorkout_title">new Workout</string>
     <string name="context_delete_workout">Delete</string>
+    <string name="exercise_type">Choose exercise</string>
+    <string name="context_rename_workout">Rename</string>
+    <string name="button_text_change">Change</string>
 </resources>

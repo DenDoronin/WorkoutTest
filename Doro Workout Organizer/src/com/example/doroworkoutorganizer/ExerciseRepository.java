@@ -9,6 +9,9 @@ import static com.example.doroworkoutorganizer.ExerciseConstants.REST_DURATION;
 import static com.example.doroworkoutorganizer.ExerciseConstants.TABLE_EXERCISE;
 import static com.example.doroworkoutorganizer.NameConstants.TABLE_NAME;
 import static com.example.doroworkoutorganizer.NameConstants.NAME_VALUE;
+import static com.example.doroworkoutorganizer.WorkoutConstants.DESCRIPTION;
+import static com.example.doroworkoutorganizer.WorkoutConstants.TABLE_WORKOUT;
+import static com.example.doroworkoutorganizer.WorkoutConstants.WORKOUT_NAME;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,4 +89,59 @@ public class ExerciseRepository {
 		  }
 		  return set;
 		 }
+	
+	public static void update(final Context context, ExerciseEntity e)
+	{
+		data = new WorkoutData(context);
+		try{
+			SQLiteDatabase db = data.getWritableDatabase(); 
+			ContentValues values = new ContentValues(); 
+			values.put(NAME_ID,e.getName_id()); 
+			values.put(WORKOUT_ID, e.getWorkout_id());
+			values.put(COUNT_OF_REPS, e.getCount());
+			values.put(REP_DURATION,e.getRep_duration()); 
+			values.put(REST_DURATION,e.getRest_duration());
+			db.update(TABLE_EXERCISE, values, _ID+"="+String.valueOf(e.getId()), null);
+		}
+		finally
+		{
+			data.close();
+		}
+	}
+	public static ExerciseEntity getExerciseById(final Context context, int exercise_id ) {
+		
+		  ExerciseEntity set = null;
+		  data = new WorkoutData(context);
+		  try
+			{
+			  String selectQuery = "SELECT * FROM " + TABLE_EXERCISE+ " WHERE "+_ID+"=="+String.valueOf(exercise_id);
+			  SQLiteDatabase db = data.getReadableDatabase();
+			  Cursor cursor = db.rawQuery(selectQuery, null);
+			  if (cursor.moveToFirst()) {
+				 
+					  set = new ExerciseEntity(cursor) ;
+			  }
+			  cursor.close();
+			  db.close();
+			}
+		  finally
+		  {
+			  data.close();
+		  }
+		  return set;
+		 }
+
+	public static void delete(Context context, int id) {
+		data = new WorkoutData(context);
+		try 
+		{
+			SQLiteDatabase db = data.getReadableDatabase();
+			db.delete(TABLE_EXERCISE, _ID + "=" + String.valueOf(id), null);
+		}
+		finally
+		{
+			data.close();
+		}
+		
+	}
 }

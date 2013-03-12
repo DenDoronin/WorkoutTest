@@ -53,7 +53,23 @@ public class WorkoutRepository {
 		}
 		finally
 		{
-			
+			data.close();
+		}
+	}
+	
+	public static void update(final Context context, WorkoutEntity e)
+	{
+		data = new WorkoutData(context);
+		try{
+			SQLiteDatabase db = data.getWritableDatabase(); 
+			ContentValues values = new ContentValues(); 
+			values.put(DESCRIPTION, e.getDescription());
+			values.put(WORKOUT_NAME,e.getName()); 
+			db.update(TABLE_WORKOUT, values, _ID+"="+String.valueOf(e.getId()), null);
+		}
+		finally
+		{
+			data.close();
 		}
 	}
 

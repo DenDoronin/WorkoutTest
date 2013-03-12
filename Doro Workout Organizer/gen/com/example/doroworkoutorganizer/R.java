@@ -32,15 +32,21 @@ public final class R {
     }
     public static final class drawable {
         public static final int background=0x7f020000;
-        public static final int exercise=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int rest=0x7f020003;
-        public static final int workout_background=0x7f020004;
+        public static final int count_icon=0x7f020001;
+        public static final int duration_icon=0x7f020002;
+        public static final int exercise=0x7f020003;
+        public static final int exercise_icon=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int relax_icon=0x7f020006;
+        public static final int rest=0x7f020007;
+        public static final int workout_background=0x7f020008;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0016;
+        public static final int action_settings=0x7f0a0018;
         public static final int addExercize=0x7f0a0005;
+        public static final int context_delete_exercise=0x7f0a0017;
         public static final int context_delete_workout=0x7f0a0015;
+        public static final int context_rename_workout=0x7f0a0016;
         public static final int count=0x7f0a000a;
         public static final int exercise_id=0x7f0a0008;
         public static final int exercize_drop_list=0x7f0a0000;
@@ -56,7 +62,7 @@ public final class R {
         public static final int rest_duration=0x7f0a000c;
         public static final int saveWorkout=0x7f0a0006;
         public static final int save_exercise_button=0x7f0a0004;
-        public static final int settings_add_workout=0x7f0a0017;
+        public static final int settings_add_workout=0x7f0a0019;
         public static final int workout_item_description=0x7f0a0012;
         public static final int workout_item_exercises=0x7f0a0013;
         public static final int workout_item_imgIcon=0x7f0a0010;
@@ -73,7 +79,8 @@ public final class R {
     }
     public static final class menu {
         public static final int context_menu=0x7f090000;
-        public static final int workout=0x7f090001;
+        public static final int context_menu_exercise=0x7f090001;
+        public static final int workout=0x7f090002;
     }
     public static final class string {
         public static final int action_settings=0x7f070001;
@@ -83,8 +90,11 @@ public final class R {
         public static final int add_title=0x7f070009;
         public static final int add_workout_label=0x7f070008;
         public static final int app_name=0x7f070000;
+        public static final int button_text_change=0x7f070016;
         public static final int context_delete_workout=0x7f070013;
+        public static final int context_rename_workout=0x7f070015;
         public static final int empty=0x7f07000a;
+        public static final int exercise_type=0x7f070014;
         public static final int exercize_title=0x7f07000e;
         public static final int hint_edit=0x7f07000d;
         public static final int newWorkout_title=0x7f070012;

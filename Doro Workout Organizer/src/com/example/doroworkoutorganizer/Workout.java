@@ -7,7 +7,9 @@ import java.util.Set;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -67,17 +69,22 @@ public class Workout extends ListActivity {
 	            (AdapterView.AdapterContextMenuInfo) menuInfo;
 	    selected_id = info.position;
 	    menu.setHeaderTitle("Workout: "+entities.get(selected_id).getName());
-	    int gg =0;
 	}
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
-	    AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 	    switch (item.getItemId()) {
 	        case R.id.context_delete_workout:
 	        	
-	            WorkoutRepository.delete(this, entities.get(selected_id).getId());
-	            onResume();
+	            DeleteDialog(entities.get(selected_id));
 	            return true;
+	        case R.id.context_rename_workout:
+	        	Intent intent = new Intent(this, newWorkout.class);
+	        	intent.putExtra("WORKOUT_ID", String.valueOf(entities.get(selected_id).getId()));
+				intent.putExtra("WORKOUT_NAME", entities.get(selected_id).getName());
+				intent.putExtra("WORKOUT_DESCRIPTION", entities.get(selected_id).getDescription());
+				intent.putExtra("BUTTON_TEXT", getString( R.string.button_text_change));
+				startActivity(intent);
+	        	return true;
 	        default:
 	            return super.onContextItemSelected(item);
 	    }
@@ -111,6 +118,24 @@ public class Workout extends ListActivity {
 		setListAdapter(adapter);
 
 		
+	}
+	private void DeleteDialog(final WorkoutEntity e)
+	{
+		new AlertDialog.Builder(this)
+	    .setTitle("Delete")
+	    .setMessage("Are you sure you want to delete "+e.getName()+"?")
+	    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	        	WorkoutRepository.delete(getApplicationContext(), e.getId());
+	        	onResume();
+	        }
+	     })
+	    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	            
+	        }
+	     })
+	     .show();
 	}
 
 
