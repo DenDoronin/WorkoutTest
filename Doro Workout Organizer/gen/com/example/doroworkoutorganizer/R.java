@@ -15,8 +15,10 @@ public final class R {
     }
     public static final class color {
         public static final int background=0x7f050000;
+        public static final int exercise_item_text_color=0x7f050004;
         public static final int hint_edit=0x7f050002;
         public static final int shadow_color=0x7f050001;
+        public static final int workout_item_text_color=0x7f050003;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -36,33 +38,42 @@ public final class R {
         public static final int workout_background=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a000f;
-        public static final int addExercize=0x7f0a0006;
-        public static final int count=0x7f0a000b;
-        public static final int exercise_id=0x7f0a0009;
-        public static final int exercize_drop_list=0x7f0a0001;
-        public static final int imgIcon=0x7f0a0008;
-        public static final int main_list=0x7f0a0000;
-        public static final int name_id=0x7f0a000a;
-        public static final int rep_duration=0x7f0a000c;
-        public static final int repsCountEdit=0x7f0a0002;
-        public static final int repsDurationEdit=0x7f0a0003;
-        public static final int restDurationEdit=0x7f0a0004;
-        public static final int rest_duration=0x7f0a000d;
-        public static final int saveWorkout=0x7f0a0007;
-        public static final int save_exercise_button=0x7f0a0005;
-        public static final int settings_add_workout=0x7f0a0010;
-        public static final int workout_id=0x7f0a000e;
+        public static final int action_settings=0x7f0a0016;
+        public static final int addExercize=0x7f0a0005;
+        public static final int context_delete_workout=0x7f0a0015;
+        public static final int count=0x7f0a000a;
+        public static final int exercise_id=0x7f0a0008;
+        public static final int exercize_drop_list=0x7f0a0000;
+        public static final int imgIcon=0x7f0a0007;
+        public static final int name_id=0x7f0a0009;
+        public static final int newWorkoutAdd=0x7f0a000f;
+        public static final int newWorkoutDescription=0x7f0a000e;
+        public static final int newWorkoutName=0x7f0a000d;
+        public static final int rep_duration=0x7f0a000b;
+        public static final int repsCountEdit=0x7f0a0001;
+        public static final int repsDurationEdit=0x7f0a0002;
+        public static final int restDurationEdit=0x7f0a0003;
+        public static final int rest_duration=0x7f0a000c;
+        public static final int saveWorkout=0x7f0a0006;
+        public static final int save_exercise_button=0x7f0a0004;
+        public static final int settings_add_workout=0x7f0a0017;
+        public static final int workout_item_description=0x7f0a0012;
+        public static final int workout_item_exercises=0x7f0a0013;
+        public static final int workout_item_imgIcon=0x7f0a0010;
+        public static final int workout_item_name=0x7f0a0011;
+        public static final int workout_item_workout_duration=0x7f0a0014;
     }
     public static final class layout {
         public static final int activity_workout=0x7f030000;
         public static final int add_exercize=0x7f030001;
         public static final int add_workout=0x7f030002;
         public static final int item=0x7f030003;
-        public static final int workout_item=0x7f030004;
+        public static final int new_wokout=0x7f030004;
+        public static final int workout_item=0x7f030005;
     }
     public static final class menu {
-        public static final int workout=0x7f090000;
+        public static final int context_menu=0x7f090000;
+        public static final int workout=0x7f090001;
     }
     public static final class string {
         public static final int action_settings=0x7f070001;
@@ -72,9 +83,14 @@ public final class R {
         public static final int add_title=0x7f070009;
         public static final int add_workout_label=0x7f070008;
         public static final int app_name=0x7f070000;
+        public static final int context_delete_workout=0x7f070013;
         public static final int empty=0x7f07000a;
         public static final int exercize_title=0x7f07000e;
         public static final int hint_edit=0x7f07000d;
+        public static final int newWorkout_title=0x7f070012;
+        public static final int new_workout_add=0x7f070011;
+        public static final int new_workout_description=0x7f070010;
+        public static final int new_workout_name=0x7f07000f;
         public static final int rep_duration=0x7f070006;
         public static final int reps_count=0x7f070004;
         public static final int rest_duration=0x7f070005;

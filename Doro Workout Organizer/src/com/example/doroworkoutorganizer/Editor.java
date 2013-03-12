@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 
 public class Editor extends ListActivity implements OnClickListener
 {
+	private int workout_id;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,13 +23,26 @@ public class Editor extends ListActivity implements OnClickListener
 		View saveWorkoutButton = findViewById(R.id.saveWorkout); 
 		saveWorkoutButton.setOnClickListener(this);
 		UpdateExerciseList();
+		getWorkoutId();
 		
+	}
+	private void getWorkoutId()
+	{
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+		    workout_id = Integer.parseInt(extras.getString("WORKOUT_ID"));
+		}
+		else
+		{
+			/// to do: if new workout, get it id
+		}
 	}
 	@Override 
 	protected void onResume()
 	{
 		super.onResume();
 		UpdateExerciseList();
+		//getWorkoutId();
 	}
 	
 	@Override 
@@ -44,6 +58,7 @@ public class Editor extends ListActivity implements OnClickListener
 		switch (v.getId()) {
 		case R.id.addExercize:
 			Intent i = new Intent(this, Exercise.class); 
+			i.putExtra("WORKOUT_ID", String.valueOf(workout_id));
 			startActivity(i);
 		break;
 		case R.id.saveWorkout:
@@ -62,7 +77,7 @@ public class Editor extends ListActivity implements OnClickListener
 	
 	private void UpdateExerciseList()
 	{	
-		List<ExerciseEntity> entities = ExerciseRepository.getData(this);
+		List<ExerciseEntity> entities = ExerciseRepository.getData(this,workout_id);
 
 		ExerciseAdapter adapter = new ExerciseAdapter(this, 
                 R.layout.item, entities);

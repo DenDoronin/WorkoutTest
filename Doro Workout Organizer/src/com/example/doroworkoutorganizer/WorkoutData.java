@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import static android.provider.BaseColumns._ID;
 import static com.example.doroworkoutorganizer.ExerciseConstants.NAME_ID;
+import static com.example.doroworkoutorganizer.ExerciseConstants.WORKOUT_ID;
 import static com.example.doroworkoutorganizer.ExerciseConstants.COUNT_OF_REPS;
 import static com.example.doroworkoutorganizer.ExerciseConstants.REP_DURATION;
 import static com.example.doroworkoutorganizer.ExerciseConstants.TABLE_EXERCISE;
@@ -14,7 +15,7 @@ import static com.example.doroworkoutorganizer.ExerciseConstants.REST_DURATION;
 import static com.example.doroworkoutorganizer.NameConstants.TABLE_NAME;
 import static com.example.doroworkoutorganizer.NameConstants.NAME_VALUE;
 import static com.example.doroworkoutorganizer.WorkoutConstants.TABLE_WORKOUT;
-import static com.example.doroworkoutorganizer.WorkoutConstants.EXERCISE_ID;
+import static com.example.doroworkoutorganizer.WorkoutConstants.DESCRIPTION;
 import static com.example.doroworkoutorganizer.WorkoutConstants.WORKOUT_NAME;
 
 
@@ -37,17 +38,18 @@ public class WorkoutData extends SQLiteOpenHelper {
 		db.execSQL("CREATE TABLE " + TABLE_EXERCISE 
 				+ " (" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " 
 				+ NAME_ID + " INTEGER NOT NULL, "
+				+ WORKOUT_ID + " INTEGER NOT NULL, "
 				+ COUNT_OF_REPS + " INTEGER NOT NULL, " 
 				+ REP_DURATION + " INTEGER NOT NULL, "
 				+ REST_DURATION + " INTEGER NOT NULL, "
+				+"FOREIGN KEY("+WORKOUT_ID
+				+") REFERENCES "+TABLE_WORKOUT+"("+_ID+"), "
 				+"FOREIGN KEY("+NAME_ID
 				+") REFERENCES "+TABLE_NAME+"("+_ID+"));");	
 		db.execSQL("CREATE TABLE " + TABLE_WORKOUT
 				+ " (" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " 
-				+ EXERCISE_ID + " INTEGER NOT NULL, "
-				+ WORKOUT_NAME + " TEXT NOT NULL, "
-				+"FOREIGN KEY("+ EXERCISE_ID
-				+") REFERENCES "+TABLE_EXERCISE+"("+_ID+"));");
+				+ DESCRIPTION + " TEXT, "
+				+ WORKOUT_NAME + " TEXT NOT NULL);");
 		db.execSQL("INSERT INTO "+TABLE_NAME+"("+NAME_VALUE+") VALUES ("+"'pull ups'"+");");
 		db.execSQL("INSERT INTO "+TABLE_NAME+"("+NAME_VALUE+") VALUES ("+"'push ups'"+");");
 		db.execSQL("INSERT INTO "+TABLE_NAME+"("+NAME_VALUE+") VALUES ("+"'press up'"+");");

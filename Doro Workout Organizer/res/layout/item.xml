@@ -3,7 +3,8 @@
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent" 
     android:orientation="horizontal"
-	android:padding="10sp" >
+	android:padding="10sp" 
+	android:background="@color/shadow_color">
 	<ImageView android:id="@+id/imgIcon"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
@@ -17,27 +18,32 @@
 		android:id="@+id/exercise_id" 
 		android:layout_width="wrap_content" 
 		android:layout_height="wrap_content"
-		android:layout_toRightOf="@id/imgIcon" />
+		android:layout_toRightOf="@id/imgIcon" 
+		android:textColor="@color/exercise_item_text_color"/>
 	<TextView
 		android:id="@+id/name_id" 
 		android:layout_width="wrap_content" 
 		android:layout_height="wrap_content" 
+		android:textStyle="bold"
 		android:text=": " 
 		android:layout_toRightOf="@id/imgIcon"
-		android:layout_below="@+id/exercise_id" />
+		android:layout_below="@+id/exercise_id"
+		android:textColor="@color/exercise_item_text_color" />
 	<TextView
 		android:id="@+id/count" 
 		android:layout_width="wrap_content" 
 		android:layout_height="wrap_content" 
 		android:layout_toRightOf="@id/imgIcon"
-		android:layout_below="@id/name_id" />
+		android:layout_below="@id/name_id"
+		android:textColor="@color/exercise_item_text_color" />
 	<TextView
 		android:id="@+id/rep_duration" 
 		android:layout_width="wrap_content" 
 		android:layout_height="wrap_content" 
 		android:text=": " 
 		android:layout_toRightOf="@id/imgIcon"
-		android:layout_below="@id/count" />
+		android:layout_below="@id/count"
+		android:textColor="@color/exercise_item_text_color" />
 	
 	<TextView
 		android:id="@+id/rest_duration" 
@@ -47,5 +53,6 @@
 		android:singleLine="true" 
 		android:textStyle="italic" 
 		android:layout_toRightOf="@id/imgIcon"
-		android:layout_below="@id/rep_duration" />
+		android:layout_below="@id/rep_duration" 
+		android:textColor="@color/exercise_item_text_color"/>
 ￼</RelativeLayout>

@@ -16,4 +16,9 @@
     <string name="save_workout_button">Save Workout</string>
     <string name="hint_edit">Tap exercize to change it</string>
     <string name="exercize_title">New exercize</string>
+    <string name="new_workout_name">Enter Workout name</string>
+    <string name="new_workout_description">Enter short description</string>
+    <string name="new_workout_add">Start edit</string>
+    <string name="newWorkout_title">new Workout</string>
+    <string name="context_delete_workout">Delete</string>
 </resources>

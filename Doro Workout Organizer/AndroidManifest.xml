@@ -30,6 +30,11 @@
             android:name=".Exercise" 
             android:label="@string/exercize_title" >
 		</activity>
+		<activity 
+            android:name=".newWorkout" 
+            android:label="@string/newWorkout_title" 
+            android:theme="@android:style/Theme.Dialog" >
+		</activity>
     </application>
 
 </manifest>

@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:padding="10dip" >
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+	    android:layout_marginLeft="25dip"
+	    android:layout_marginRight="25dip"
+	    android:orientation="vertical" >
+
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="25dip"
+	        android:text="@string/new_workout_name"
+	        android:textSize="18.5sp" />
+
+	    <EditText
+	        android:id="@+id/newWorkoutName"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:singleLine="true" 
+	        android:inputType="text" />
+
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="25dip"
+	        android:text="@string/new_workout_description"
+	        android:textSize="18.5sp" />
+
+	    <EditText
+	        android:id="@+id/newWorkoutDescription"
+	        android:layout_width="match_parent"
+	        android:layout_height="174dp"
+	        android:gravity="top"
+	        android:ems="10"
+	        android:inputType="textMultiLine" />
+
+	    <Button
+	        android:id="@+id/newWorkoutAdd"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/new_workout_add"/>
+
+	</LinearLayout>
+
+</LinearLayout>

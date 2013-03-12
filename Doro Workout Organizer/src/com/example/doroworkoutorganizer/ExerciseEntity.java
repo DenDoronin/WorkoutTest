@@ -11,6 +11,10 @@ public class ExerciseEntity {
 	public void setName_id(int name_id){ this.name_id = name_id;}
 	public int getName_id(){ return this.name_id;}
 	
+	private int workout_id;
+	public void setWorkout_id(int workout_id){ this.workout_id = workout_id;}
+	public int getWorkout_id(){ return this.workout_id;}
+	
 	private int count;
 	public void setCount(int count){ this.count = count;}
 	public int getCount(){ return this.count; }
@@ -28,11 +32,12 @@ public class ExerciseEntity {
 		super();
 	}
 	
-	public ExerciseEntity(String id, String name_id, String count, String rep_dur, String rest_dur)
+	public ExerciseEntity(String id, String name_id,String workout_id, String count, String rep_dur, String rest_dur)
 	{
 		super();
 		this.id =  Integer.parseInt(id);
 		this.name_id = Integer.parseInt(name_id);
+		this.workout_id = Integer.parseInt(workout_id);
 		this.count = Integer.parseInt(count);
 		this.rep_duration = Integer.parseInt(rep_dur);
 		this.rest_duration = Integer.parseInt(rest_dur);
@@ -44,7 +49,8 @@ public class ExerciseEntity {
 					cursor.getString(1), 
 					cursor.getString(2), 
 					cursor.getString(3), 
-					cursor.getString(4));
+					cursor.getString(4),
+					cursor.getString(5));
 	}
 
 }
