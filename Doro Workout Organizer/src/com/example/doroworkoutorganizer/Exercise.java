@@ -11,8 +11,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +34,8 @@ public class Exercise extends Activity
 	private EditText rep_duration;
 	private EditText rest_duration;
 	private Spinner spinner;
-	
+	private List<NameEntity> entities;
+	private int selected_id;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,7 @@ public class Exercise extends Activity
 	   adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	   spinner.setAdapter(adapter);
 	   spinner.setSelection(0);
+	   registerForContextMenu(spinner);
 		workout_id = -1;
 		exercise_id = -1;
 		if (extras != null) {
@@ -121,6 +128,31 @@ public class Exercise extends Activity
 		
 		
 	}
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+	                                ContextMenuInfo menuInfo) {
+	    super.onCreateContextMenu(menu, v, menuInfo);
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.context_menu, menu);
+	    AdapterView.AdapterContextMenuInfo info =
+	            (AdapterView.AdapterContextMenuInfo) menuInfo;
+	 //   selected_id = info.position;
+	 //   menu.setHeaderTitle("Workout: "+entities.get(spinner.getCount()-selected_id).getName());
+	}
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	        case R.id.context_delete_workout:
+	        	
+	            DeleteDialog(entities.get(selected_id));
+	            return true;
+	        case R.id.context_rename_workout:
+	        	return true;
+	        default:
+	            return super.onContextItemSelected(item);
+	    }
+	}
+	
 	private boolean Validate()
 	{
 		String tmp = reps_count.getText().toString();
@@ -151,6 +183,24 @@ public class Exercise extends Activity
 			ExerciseRepository.update(this, e);
 		}
 		
+	}
+	private void DeleteDialog(final NameEntity e)
+	{
+		new AlertDialog.Builder(this)
+	    .setTitle("Delete")
+	    .setMessage("Are you sure you want to delete "+e.getName()+"?")
+	    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	        	NameRepository.delete(getApplicationContext(), e.getId());
+	        	onResume();
+	        }
+	     })
+	    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	            
+	        }
+	     })
+	     .show();
 	}
 	
 }

@@ -1,8 +1,10 @@
 package com.example.doroworkoutorganizer;
 
 
+import static android.provider.BaseColumns._ID;
 import static com.example.doroworkoutorganizer.NameConstants.TABLE_NAME;
 import static com.example.doroworkoutorganizer.NameConstants.NAME_VALUE;
+import static com.example.doroworkoutorganizer.WorkoutConstants.TABLE_WORKOUT;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -37,7 +39,7 @@ public class NameRepository {
 		  }
 		  return set;
 		 }
-	static private void addExerciseType(final Context context,final String exercise_name) {
+	static public void addExerciseType(final Context context,final String exercise_name) {
 		// TODO Auto-generated method stub
 		data = new WorkoutData(context);
 		try{
@@ -50,6 +52,19 @@ public class NameRepository {
 		{
 			data.close();
 		}
+	}
+	public static void delete(Context context, int id) {
+		data = new WorkoutData(context);
+		try 
+		{
+			SQLiteDatabase db = data.getReadableDatabase();
+			db.delete(TABLE_NAME, _ID + "=" + String.valueOf(id), null);
+		}
+		finally
+		{
+			data.close();
+		}
+		
 	}
 
 }

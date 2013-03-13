@@ -3,6 +3,7 @@
     <color name="shadow_color">#80404040</color> 
     <color name="hint_edit">#64ff0000</color>
     <color name="workout_item_text_color">#ffffff</color>
-    <color name="exercise_item_text_color">#ffffff</color>
+    <color name="exercise_item_text_color">#000000</color>
+    <color name="exersise_item_background">#FFFFFF</color>
 
 </resources>

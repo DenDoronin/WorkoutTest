@@ -16,38 +16,22 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="25dip"
-	        android:text="@string/new_workout_name"
+	        android:text="@string/new_exercise_name"
 	        android:textSize="18.5sp" />
 
 	    <EditText
-	        android:id="@+id/newWorkoutName"
+	        android:id="@+id/newExerciseType"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:singleLine="true" 
 	        android:inputType="text" />
-
-	    <TextView
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_marginTop="25dip"
-	        android:text="@string/new_workout_description"
-	        android:textSize="18.5sp" />
-
-	    <EditText
-	        android:id="@+id/newWorkoutDescription"
-	        android:layout_width="match_parent"
-	        android:layout_height="174dp"
-	        android:gravity="top"
-	        android:ems="10"
-	        android:inputType="textMultiLine" />
-
 	    <Button
-	        android:id="@+id/newWorkoutAdd"
+	        android:id="@+id/newExerciseTypeButton"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/custom_button"
             style="@style/button_text"
-	        android:text="@string/new_workout_add"/>
+	        android:text="@string/new_exercise_add"/>
 
 	</LinearLayout>
 

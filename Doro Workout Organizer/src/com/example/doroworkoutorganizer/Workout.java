@@ -91,14 +91,20 @@ public class Workout extends ListActivity {
 	}
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent intent;
 		switch (item.getItemId()) { 
 		case R.id.settings_add_workout:
 		
-			Intent intent = new Intent(this, newWorkout.class);
+			intent = new Intent(this, newWorkout.class);
 			//intent.putExtra("WORKOUT_ID", -1);
 			startActivity(intent);
 			return true;
 			// More items go here (if any) ... 
+		case R.id.settings_add_exercise_type:
+			
+			intent = new Intent(this, newExercise.class);
+			startActivity(intent);
+			return true;
 		}
 			return false;
 	}

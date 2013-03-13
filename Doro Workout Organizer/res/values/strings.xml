@@ -24,4 +24,8 @@
     <string name="exercise_type">Choose exercise</string>
     <string name="context_rename_workout">Rename</string>
     <string name="button_text_change">Change</string>
+    <string name="new_exercise_name">Enter new exercise type</string>
+    <string name="new_exercise_add">Add</string>
+    <string name="settings_add_exercise_type">Add exercise...</string>
+    <string name="newExercise_title">New exercise</string>
 </resources>

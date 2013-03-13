@@ -62,6 +62,8 @@
 		    android:layout_height="wrap_content"
 		    android:layout_marginTop="18.5dip"
 		    android:shadowColor="@color/shadow_color"
+		    android:background="@drawable/custom_button"
+            style="@style/button_text"
 		    android:text="@string/add_button_label" />
 
    </LinearLayout>

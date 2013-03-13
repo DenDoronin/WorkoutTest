@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import android.content.Context;
+import android.content.res.Resources.NotFoundException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.app.Activity;
+import android.app.Application;
 
 public class ExerciseAdapter extends ArrayAdapter<ExerciseEntity> {
 	Context context; 
@@ -49,9 +51,20 @@ public class ExerciseAdapter extends ArrayAdapter<ExerciseEntity> {
         
         ExerciseEntity exercise = data.get(position);
         //crash!!!
-        holder.id.setText(String.valueOf(exercise.getId()));
-        holder.imgIcon.setImageResource(R.drawable.count_icon);
-        holder.name_id.setText("Task: "+ExerciseRepository.getNameById(getContext(), exercise.getName_id()));
+     //   holder.id.setText(String.valueOf(exercise.getId()));
+        String name = ExerciseRepository.getNameById(getContext(), exercise.getName_id());
+        String icon_name = "icon_"+name.replace(" ", "");
+        int resourceId;
+       
+        	resourceId = ((Activity)context).getResources().getIdentifier(icon_name, 
+        		"drawable", 
+        		"com.example.doroworkoutorganizer");
+        if(resourceId == 0 )
+        {
+        	resourceId = R.drawable.icon_unknown;
+        }
+        holder.imgIcon.setImageResource(resourceId);
+        holder.name_id.setText("Task: "+name);
         holder.count.setText("Count: "+String.valueOf(exercise.getCount())+ " times");
         holder.rep_duration.setText("One rep: "+String.valueOf(exercise.getRep_duration())+" sec");
         holder.rest_duration.setText("Rest duration: "+String.valueOf(exercise.getRest_duration())+" sec");
