@@ -35,6 +35,7 @@ public class Exercise extends Activity
 	private EditText rep_duration;
 	private EditText rest_duration;
 	private Spinner spinner;
+	private List<NameEntity> entities;
 
 
 	@Override
@@ -47,9 +48,11 @@ public class Exercise extends Activity
 		rest_duration = (EditText)findViewById(R.id.restDurationEdit);
 		Bundle extras = getIntent().getExtras();
 		spinner = (Spinner)findViewById(R.id.exercize_drop_list);
-		Set<String> set = NameRepository.getNameData(this);
+		entities = NameRepository.getData(this);
 	       //Convert set into list
-	    List<String> list = new ArrayList<String>(set);
+		List<String> list = new ArrayList<String>();
+		for ( NameEntity e: entities)
+	    list.add(e.getName());
 	    
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 	    		android.R.layout.simple_spinner_item, list);
@@ -67,7 +70,14 @@ public class Exercise extends Activity
 		    reps_count.setText(String.valueOf(e.getCount()));
 		    rep_duration.setText(String.valueOf(e.getRep_duration()));
 		    rest_duration.setText(String.valueOf(e.getRest_duration()));
-		    spinner.setSelection(spinner.getCount()-e.getName_id());
+		    int name_index = -1;
+		    for (int i = 0 ; i < entities.size(); i++)
+		    	if ( entities.get(i).getId() == e.getName_id())
+		    		{
+		    			name_index = i;
+		    			break;
+		    		}
+		    spinner.setSelection(name_index);
 		    String button_text = extras.getString("BUTTON_TEXT"); 
 		    Button b = (Button) saveButton;
 		    b.setText(button_text);
@@ -144,7 +154,8 @@ public class Exercise extends Activity
 		int count = Integer.parseInt(reps_count.getText().toString());
 		int reps_dur = Integer.parseInt(rep_duration.getText().toString());
 		int rest_dur = Integer.parseInt(rest_duration.getText().toString());
-		int name_id = spinner.getCount() - spinner.getSelectedItemPosition();
+		int gg = spinner.getSelectedItemPosition();
+		int name_id =  entities.get(spinner.getSelectedItemPosition()).getId();
 		if (exercise_id ==-1)
 		ExerciseRepository.addExercise(this,name_id,workout_id, count, reps_dur, rest_dur);
 		else

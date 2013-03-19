@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
@@ -38,6 +39,16 @@ public class Workout extends ListActivity {
 		UpdateWorkoutList();
 		getListView().setSelector( R.drawable.listselector);
 
+		View addButton = findViewById(R.id.newWorkoutButton);
+		addButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(Workout.this, newWorkout.class);
+				startActivity(intent);
+				
+			}
+		});
 	}
 	
 	@Override 
