@@ -13,6 +13,7 @@
 	    android:orientation="vertical" >
 
 	    <TextView
+	       	android:id="@+id/newExerciseTypeTitle"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="25dip"
@@ -24,7 +25,8 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:singleLine="true" 
-	        android:inputType="text" />
+	        android:inputType="text" 
+	        android:imeOptions="actionDone"/>
 	    <Button
 	        android:id="@+id/newExerciseTypeButton"
 	        android:layout_width="match_parent"
@@ -32,6 +34,12 @@
 	        android:background="@drawable/custom_button"
             style="@style/button_text"
 	        android:text="@string/new_exercise_add"/>
+	    <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.02" 
+            />
 
 	</LinearLayout>
 

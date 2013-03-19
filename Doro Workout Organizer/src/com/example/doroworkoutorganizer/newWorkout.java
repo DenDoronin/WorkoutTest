@@ -48,14 +48,16 @@ public class newWorkout extends Activity{
 				case R.id.newWorkoutAdd:
 					if ( name.getText().toString().equals("") == true)
 					{
-						new AlertDialog.Builder(newWorkout.this)
+						AlertDialog.Builder builder = new AlertDialog.Builder(newWorkout.this)
 						.setTitle("Warning")
 						.setMessage("You must enter workout name!")
 						.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int which) { 
 							}
-						})
-						.show();
+						});
+						AlertDialog alert = builder.create();
+						alert.show();
+						((Button)alert.findViewById(android.R.id.button1)).setBackgroundResource(R.drawable.custom_button);
 					return;
 					}
 					if (changeMode !=true)

@@ -36,6 +36,7 @@ public class Workout extends ListActivity {
 		setContentView(R.layout.activity_workout);
 		registerForContextMenu(getListView());
 		UpdateWorkoutList();
+		getListView().setSelector( R.drawable.listselector);
 
 	}
 	

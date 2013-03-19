@@ -2,7 +2,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
-    android:padding="10dip" >
+    android:padding="10dip" 
+    android:background="@drawable/background"
+    >
 
 	<LinearLayout
 	    
@@ -16,44 +18,52 @@
 		    android:layout_height="wrap_content"
 		    android:text="@string/exercise_type"
 		    android:layout_marginTop="25dip" 
+		    style="@style/lable_text"
 			android:textSize="18.5sp"  />
 		<Spinner
 			android:id="@+id/exercize_drop_list" 
 			android:layout_width="fill_parent" 
 			android:layout_height="wrap_content" 
+			style="@style/editable_text"
 			android:layout_marginTop="25dip"  />
 		<TextView
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:text="@string/reps_count"
-		    android:layout_marginTop="25dip" 
+		    style="@style/lable_text"
+		    android:layout_marginTop="25dip"
 			android:textSize="18.5sp"  />
 		<EditText
 			android:id="@+id/repsCountEdit" 
 			android:layout_width="fill_parent" 
 			android:layout_height="wrap_content" 
+			style="@style/editable_text"
 			android:inputType="number" />
 		<TextView
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:text="@string/rep_duration"
+		    style="@style/lable_text"
 		    android:layout_marginTop="25dip" 
 			android:textSize="18.5sp" />
 		<EditText
 			android:id="@+id/repsDurationEdit" 
 			android:layout_width="fill_parent" 
 			android:layout_height="wrap_content"
+			style="@style/editable_text"
 			android:inputType="number"  />
 		<TextView
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:text="@string/rest_duration"
-		    android:layout_marginTop="25dip" 
+		    style="@style/lable_text"
+		    android:layout_marginTop="25dip"
 			android:textSize="18.5sp" />
 		<EditText
 			android:id="@+id/restDurationEdit" 
 			android:layout_width="fill_parent" 
 			android:layout_height="wrap_content"
+			style="@style/editable_text"
 			android:inputType="number"  />
 
 		<Button

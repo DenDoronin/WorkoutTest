@@ -4,7 +4,9 @@
     android:layout_height="fill_parent" 
     android:orientation="horizontal"
 	android:padding="10sp" 
-	android:background="@color/exersise_item_background">
+	android:background="@drawable/list_rectangle"
+	
+	>
 	<ImageView android:id="@+id/imgIcon"
         android:layout_width="60dp"
         android:layout_height="90dp"

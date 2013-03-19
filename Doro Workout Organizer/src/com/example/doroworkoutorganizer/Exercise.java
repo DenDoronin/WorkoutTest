@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,8 +35,7 @@ public class Exercise extends Activity
 	private EditText rep_duration;
 	private EditText rest_duration;
 	private Spinner spinner;
-	private List<NameEntity> entities;
-	private int selected_id;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +56,8 @@ public class Exercise extends Activity
 	   adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	   spinner.setAdapter(adapter);
 	   spinner.setSelection(0);
-	   registerForContextMenu(spinner);
-		workout_id = -1;
-		exercise_id = -1;
+	   workout_id = -1;
+	   exercise_id = -1;
 		if (extras != null) {
 			try
 			{
@@ -82,7 +81,7 @@ public class Exercise extends Activity
 		{
 			/// to do: if new workout, get it id
 			
-			new AlertDialog.Builder(this)
+				new AlertDialog.Builder(this)
 		    .setTitle("Error")
 		    .setMessage("Exercise will not save, unknown workout id")
 		    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -101,14 +100,15 @@ public class Exercise extends Activity
 				// TODO Auto-generated method stub
 				if (Validate()==false) 
 				{
-					new AlertDialog.Builder(Exercise.this)
+					AlertDialog.Builder builder = new AlertDialog.Builder(Exercise.this)
 			    		.setTitle("Warning")
 			    		.setMessage("You must fill all fields!")
 			    		.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 			    			public void onClick(DialogInterface dialog, int which) { 
 			    			}
-			    		})
-			    		.show();
+			    		});
+					AlertDialog alert = builder.create();
+					alert.show();
 					return;
 				}
 				data = new WorkoutData(Exercise.this);
@@ -128,34 +128,9 @@ public class Exercise extends Activity
 		
 		
 	}
-	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-	                                ContextMenuInfo menuInfo) {
-	    super.onCreateContextMenu(menu, v, menuInfo);
-	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.context_menu, menu);
-	    AdapterView.AdapterContextMenuInfo info =
-	            (AdapterView.AdapterContextMenuInfo) menuInfo;
-	 //   selected_id = info.position;
-	 //   menu.setHeaderTitle("Workout: "+entities.get(spinner.getCount()-selected_id).getName());
-	}
-	@Override
-	public boolean onContextItemSelected(MenuItem item) {
-	    switch (item.getItemId()) {
-	        case R.id.context_delete_workout:
-	        	
-	            DeleteDialog(entities.get(selected_id));
-	            return true;
-	        case R.id.context_rename_workout:
-	        	return true;
-	        default:
-	            return super.onContextItemSelected(item);
-	    }
-	}
 	
 	private boolean Validate()
 	{
-		String tmp = reps_count.getText().toString();
 		if (reps_count.getText().toString().equals("")) return false;
 		if(rep_duration.getText().toString().equals("")) return false;
 		if (rest_duration.getText().toString().equals("")) return false;

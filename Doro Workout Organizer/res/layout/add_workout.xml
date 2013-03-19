@@ -3,6 +3,7 @@
     android:layout_height="fill_parent"
     android:alpha="1"
     android:orientation="horizontal"
+    android:background="@drawable/background"
     android:padding="10dip" >
 
     <LinearLayout
@@ -11,7 +12,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="15dip"
         android:layout_marginRight="15dip"
-        android:orientation="vertical" >
+         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/workout_label"
@@ -20,6 +21,7 @@
             android:layout_gravity="top|center"
             android:layout_marginBottom="25dip"
             android:text="@string/add_workout_label"
+            style="@style/button_text"
             android:textSize="24.5sp" />
 
         <Button
@@ -43,10 +45,12 @@
             android:id="@android:id/list"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.02" />
-
+            android:layout_weight="0.02" 
+            android:background="@color/exersise_item_background"
+            />
         <TextView
             android:id="@android:id/empty"
+            style="@style/button_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/empty" />

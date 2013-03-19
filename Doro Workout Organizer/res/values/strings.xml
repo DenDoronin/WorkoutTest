@@ -26,6 +26,10 @@
     <string name="button_text_change">Change</string>
     <string name="new_exercise_name">Enter new exercise type</string>
     <string name="new_exercise_add">Add</string>
-    <string name="settings_add_exercise_type">Add exercise...</string>
-    <string name="newExercise_title">New exercise</string>
+    <string name="settings_add_exercise_type">Exercises editor...</string>
+    <string name="newExercise_title">Exercise editor</string>
+    <string name="context_delete_exercise_type">Delete </string>
+    <string name="context_rename_exercise_type">Rename </string>
+    <string name="change_exercise_type_button">Change</string>
+     <string name="add_exercise_type_button">Add</string>
 </resources>

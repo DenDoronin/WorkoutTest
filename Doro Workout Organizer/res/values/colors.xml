@@ -5,5 +5,7 @@
     <color name="workout_item_text_color">#ffffff</color>
     <color name="exercise_item_text_color">#000000</color>
     <color name="exersise_item_background">#FFFFFF</color>
+    <drawable name="focused">#ffcf00</drawable>
+    <drawable name="selected">#ff9900</drawable>
 
 </resources>

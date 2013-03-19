@@ -37,6 +37,7 @@ public class Editor extends ListActivity implements OnClickListener
 		UpdateExerciseList();
 		getWorkoutId();
 		registerForContextMenu(getListView());
+		getListView().setSelector( R.drawable.listselector);
 		
 	}
 	private void getWorkoutId()
